@@ -28,4 +28,14 @@ class rsyslog::config {
       }
     }
   }
+
+  if 'systemd' in $facts and $facts['systemd'] {
+    file {"${rsyslog::config_dir}/listen.conf":
+      owner => "root",
+      group => "root",
+      mode => "0644",
+      source => "puppet:///modules/rsyslog/listen.conf",
+      require => File[$rsyslog::config_dir]
+    }
+  }
 }
