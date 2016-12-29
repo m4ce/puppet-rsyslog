@@ -8,7 +8,7 @@
 $<%= $option_name %> <%= $v %>
 <% } -%>
 <% } elsif $option_value =~ Boolean { -%>
-$<%= $option_name %> <% if $option_value { -%>on<% else -%>off<% } %>
+$<%= $option_name %> <% if $option_value { -%>on<% } else { -%>off<% } %>
 <% } else { -%>
 $<%= $option_name %> <%= $option_value %>
 <% } -%>
