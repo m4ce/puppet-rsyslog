@@ -1,8 +1,8 @@
 define rsyslog::filter_facility (
   Pattern[/\d+/] $order = "00",
   Variant[String, Array[String]] $facility,
-  String $destination,
-  Boolean $write_async = true,
+  String $action,
+  Boolean $write_async = false,
   Enum["present", "absent"] $ensure = "present"
 ) {
   unless defined(Class["rsyslog"]) {
@@ -14,7 +14,11 @@ define rsyslog::filter_facility (
     group => "root",
     mode => "0644",
     ensure => $ensure,
-    content => epp("rsyslog/filter_facility.conf.epp"),
+    content => epp("rsyslog/filter_facility.conf.epp", {
+      facility => $facility,
+      action => $action,
+      write_async => $write_async
+    }),
     require => File[$rsyslog::config_dir],
     notify => Service[$rsyslog::service_name]
   }

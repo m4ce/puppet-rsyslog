@@ -2,4 +2,4 @@
 # Managed by Puppet in the <%= $::environment %> environment
 #
 
-<% if $facility =~ Array { -%><%= join($facility ',') %><% } else { -%><%= $facility %><% } -%> <% if $write_async { -%>-<% } -%><%= $destination %>
+<% if $facility =~ Array { -%><%= join($facility ',') %><% } else { -%><%= $facility %><% } -%> <% if $write_async { -%>-<% } -%><%= $action %>

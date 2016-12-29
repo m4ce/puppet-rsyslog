@@ -15,7 +15,12 @@ define rsyslog::filter_property (
     group => "root",
     mode => "0644",
     ensure => $ensure,
-    content => epp("rsyslog/filter_property.conf.epp"),
+    content => epp("rsyslog/filter_property.conf.epp", {
+      property => $property,
+      operator => $operator,
+      value => $value,
+      discard => $discard
+    }),
     require => File[$rsyslog::config_dir]
   }
 
