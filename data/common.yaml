@@ -1,0 +1,35 @@
+---
+lookup_options:
+  rsyslog::filter_facilities:
+    merge:
+      strategy: deep
+  rsyslog::filter_properties:
+    merge:
+      strategy: deep
+  rsyslog::opts:
+    merge:
+      strategy: deep
+  rsyslog::packages:
+    merge:
+      strategy: hash
+rsyslog::opts:
+  "ModLoad":
+    - "imuxsock"
+    - "imjournal"
+  "WorkDirectory": "/var/lib/rsyslog"
+  "ActionFileDefaultTemplate": "RSYSLOG_TraditionalFileFormat"
+  "IncludeConfig": "%{lookup('rsyslog::config_dir')}/*.conf"
+  "OmitLocalLogging": true
+  "IMJournalStateFile": "imjournal.state"
+rsyslog::filter_facilities: {}
+rsyslog::filter_properties: {}
+rsyslog::config_file: "/etc/rsyslog.conf"
+rsyslog::config_file_manage: true
+rsyslog::config_dir: "/etc/rsyslog.d"
+rsyslog::config_dir_purge: false
+rsyslog::packages:
+  "rsyslog": {}
+rsyslog::service_name: "rsyslog"
+rsyslog::service_enable: true
+rsyslog::service_manage: true
+rsyslog::service_ensure: "running"
