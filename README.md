@@ -75,25 +75,25 @@ rsyslog::packages:
 Path to the rsyslog configuration directory (default: /etc/rsyslog.d)
 
 ##### `config_dir_purge` (optional)
-Whether we should purge unmanaged resources under the rsyslog's configuration directory (default: true)
+Whether we should purge unmanaged resources under the rsyslog's configuration directory (default: `true`)
 
 ##### `config_file` (optional)
 Path to the rsyslog configuration file (default: /etc/rsyslog.conf)
 
 ##### `config_file_manage` (optional)
-Whether we should manage rsyslog's configuration file or not (default: true)
+Whether we should manage rsyslog's configuration file or not (default: `true`)
 
 ##### `service_name` (optional)
 rsyslog service name (default: 'rsyslog')
 
 ##### `service_manage` (optional)
-Whether we should manage the service runtime or not (default: true)
+Whether we should manage the service runtime or not (default: `true`)
 
 ##### `service_ensure` (optional)
-Whether the resource is running or not. Valid values are 'running', 'stopped'. (default: 'running')
+Whether the resource is running or not. Valid values are `running`, `stopped`. (default: `running`)
 
 ##### `service_enable` (optional)
-Whether the service is onboot enabled or not. Defaults to true.
+Whether the service is onboot enabled or not. Defaults to `true`.
 
 ### Defined Types
 
@@ -111,16 +111,16 @@ Filter name
 Filter order
 
 ##### `operator` (required)
-Filter condition comparison operator (can be 'contains', 'isequal', 'startswidth', 'regex', 'ereregex'). You can use the bang-character (!) immediately in front of a compare-operation, the outcome of this operation is negated.
+Filter condition comparison operator (can be `contains`, `isequal`, `startswidth`, `regex`, `ereregex`). You can use the bang-character (`!`) immediately in front of a compare-operation, the outcome of this operation is negated.
 
 ##### `value` (required)
 Filter condition value
 
 ##### `discard` (required)
-Discard messages if condition matches (default: false)
+Discard messages if condition matches (default: `false`)
 
 ##### `ensure` (optional)
-Whether the resource is present or not. Valid values are 'present', 'absent'. Defaults to 'present'.
+Whether the resource is present or not. Valid values are `present`, `absent`. Defaults to `present`.
 
 #### rsyslog::filter_facility
 `rsyslog::filter_facility` manages rsyslog property-facility filters
@@ -142,10 +142,10 @@ Filter facility
 Filter action
 
 ##### `write_async` (required)
-Whether to write asynchronously or not (default: false)
+Whether to write asynchronously or not (default: `false`)
 
 ##### `ensure` (optional)
-Whether the resource is present or not. Valid values are 'present', 'absent'. Defaults to 'present'.
+Whether the resource is present or not. Valid values are `present`, `absent`. Defaults to `present`.
 
 
 <a name="hiera"/>
