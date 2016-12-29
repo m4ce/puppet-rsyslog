@@ -5,7 +5,7 @@
 <% $rsyslog::opts.each |$option_name, $option_value| { -%>
 <% if $option_value =~ Array { -%>
 <% $option_value.each |$v| { -%>
-$<%= $option_name %> <%= %v %>
+$<%= $option_name %> <%= $v %>
 <% } -%>
 <% } elsif $option_value =~ Boolean { -%>
 $<%= $option_name %> <% if $option_value { -%>on<% else -%>off<% } %>
