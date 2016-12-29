@@ -18,7 +18,7 @@ class rsyslog::config {
   }
 
   if $rsyslog::service_manage {
-    File["${rsyslog::config_dir}/rsyslog.d"] {
+    File[$rsyslog::config_dir] {
       notify => Service[$rsyslog::service_name]
     }
 
