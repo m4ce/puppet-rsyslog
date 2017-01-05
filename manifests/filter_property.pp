@@ -5,7 +5,7 @@ define rsyslog::filter_property (
   Data $value,
   Boolean $discard = false,
   Boolean $write_async = false,
-  Optiona[String] $target = undef,
+  Optional[String] $target = undef,
   Enum["present", "absent"] $ensure = "present"
 ) {
   unless defined(Class["rsyslog"]) {
