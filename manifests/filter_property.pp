@@ -25,7 +25,7 @@ define rsyslog::filter_property (
   }
 
   if $rsyslog::service_manage {
-    File["${rsyslog::config_dir}/${order}-filter_priority-${name}.conf"] {
+    File["${rsyslog::config_dir}/${order}-filter_property${name}.conf"] {
       notify => Service[$rsyslog::service_name]
     }
   }
