@@ -116,8 +116,14 @@ Filter condition comparison operator (can be `contains`, `isequal`, `startswidth
 ##### `value` (required)
 Filter condition value
 
-##### `discard` (required)
+##### `discard` (optional)
 Discard messages if condition matches (default: `false`)
+
+##### `target` (optional)
+Filter target
+
+##### `write_async` (optional)
+Whether to write asynchronously or not (default: `false`)
 
 ##### `ensure` (optional)
 Whether the resource is present or not. Valid values are `present`, `absent`. Defaults to `present`.
@@ -138,10 +144,10 @@ Filter order
 ##### `facility` (required)
 Filter facility
 
-##### `action` (required)
-Filter action
+##### `target` (required)
+Filter target
 
-##### `write_async` (required)
+##### `write_async` (optional)
 Whether to write asynchronously or not (default: `false`)
 
 ##### `ensure` (optional)
@@ -165,7 +171,7 @@ rsyslog::filter_properties:
 rsyslog::filter_facilities:
   "log_kernel_messages":
     facility: "kern.*"
-    action: "/dev/console"
+    destination: "/dev/console"
     ensure: "present"
 ```
 

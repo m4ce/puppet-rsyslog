@@ -3,6 +3,8 @@ type Rsyslog::Filter_property_spec = Struct[{
   property => String,
   operator => Pattern[/^!?(contains|isequal|startswith|regex|ereregex)/],
   value => Data,
-  discard => Boolean,
+  Optional[discard] => Boolean,
+  Optional[write_async] => Boolean,
+  Optional[target] => String,
   Optional[ensure] => Enum["present", "absent"]
 }]
