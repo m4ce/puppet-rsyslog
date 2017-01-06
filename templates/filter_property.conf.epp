@@ -2,4 +2,4 @@
 # Managed by Puppet in the <%= $::environment %> environment
 #
 
-:<%= $property %>, <%= $operator %>, "<%= $value %>" <% if $discard { -%>  ~<% } -%> <% if $target { -%><% if $write_async { -%>-<% } -%><%= $target %><% } %>
+:<%= $property %>, <%= $operator %>, "<%= $value %>"<% if $discard { %> ~<% } -%><% if $target { %> <% if $write_async { -%>-<% } -%><%= $target %><% } %>
