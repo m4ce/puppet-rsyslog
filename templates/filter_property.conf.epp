@@ -2,5 +2,10 @@
 # Managed by Puppet in the <%= $::environment %> environment
 #
 
-:<%= $property %>, <%= $operator %>, "<%= $value %>"<% if $target { %> <% if $write_async { -%>-<% } -%><%= $target %><% } else { -%><% if $discard { %> ~<% } -%><% } %>
-<% if $discard and $target { -%>& ~<% } -%>
+:<%= $property %>, <%= $operator %>, "<%= $value %>" <% if $actions !~ Array { -%><%= $actions %><% } else { %><%= $actions[0] %>
+<% if size($actions) > 1 { -%>
+<% $actions[1,-1].each |$act| { -%>
+& <%= $act %>
+<% } -%>
+<% } -%>
+<% } -%>

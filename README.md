@@ -116,14 +116,8 @@ Filter condition comparison operator (can be `contains`, `isequal`, `startswidth
 ##### `value` (required)
 Filter condition value
 
-##### `discard` (optional)
-Discard messages if condition matches (default: `false`)
-
-##### `target` (optional)
-Filter target
-
-##### `write_async` (optional)
-Whether to write asynchronously or not (default: `false`)
+##### `actions` (required)
+Filter action(s). Multiple actions can be specified as an Array of Strings.
 
 ##### `ensure` (optional)
 Whether the resource is present or not. Valid values are `present`, `absent`. Defaults to `present`.
@@ -144,15 +138,11 @@ Filter order
 ##### `facility` (required)
 Filter facility
 
-##### `target` (required)
-Filter target
-
-##### `write_async` (optional)
-Whether to write asynchronously or not (default: `false`)
+##### `actions` (required)
+Filter action(s). Multiple actions can be specified as an Array of Strings.
 
 ##### `ensure` (optional)
 Whether the resource is present or not. Valid values are `present`, `absent`. Defaults to `present`.
-
 
 <a name="hiera"/>
 ## Hiera integration
@@ -166,12 +156,12 @@ rsyslog::filter_properties:
     property: "programname"
     operator: "isequal"
     value: "mesos-slave"
-    discard: true
+    actions: '~'
     ensure: "present"
 rsyslog::filter_facilities:
   "log_kernel_messages":
     facility: "kern.*"
-    destination: "/dev/console"
+    actions: "/dev/console"
     ensure: "present"
 ```
 
