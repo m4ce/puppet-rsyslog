@@ -3,6 +3,6 @@ type Rsyslog::Filter_property_spec = Struct[{
   property => String,
   operator => Pattern[/^!?(contains|isequal|startswith|regex|ereregex)/],
   value => Data,
-  actions => Variant[String, Array[String]],
+  action => Variant[String, Array[String]],
   Optional[ensure] => Enum["present", "absent"]
 }]

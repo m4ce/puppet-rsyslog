@@ -3,7 +3,7 @@ define rsyslog::filter_property (
   String $property,
   Pattern[/^!?(contains|isequal|startswith|regex|ereregex)/] $operator,
   Data $value,
-  Variant[String, Array[String]] $actions,
+  Variant[String, Array[String]] $action,
   Enum["present", "absent"] $ensure = "present"
 ) {
   unless defined(Class["rsyslog"]) {
@@ -19,7 +19,7 @@ define rsyslog::filter_property (
       property => $property,
       operator => $operator,
       value => $value,
-      actions => $actions
+      action => $action
     }),
     require => File[$rsyslog::config_dir]
   }

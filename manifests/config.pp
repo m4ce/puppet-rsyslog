@@ -30,7 +30,7 @@ class rsyslog::config {
   }
 
   if 'systemd' in $facts and $facts['systemd'] {
-    file {"${rsyslog::config_dir}/listen.conf":
+    file {"${rsyslog::config_dir}/00-listen.conf":
       owner => "root",
       group => "root",
       mode => "0644",

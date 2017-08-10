@@ -10,16 +10,19 @@
 6. [Contact](#contact)
 
 <a name="overview"/>
+
 ## Overview
 
 Module to manage rsyslog configuration and runtime. Configuration *and* filters are totally driven via Hiera.
 
 <a name="module-description"/>
+
 ## Module Description
 
 The rsyslog module allows to automate the configuration and deployment of the rsyslog daemon.
 
 <a name="setup"/>
+
 ## Setup
 
 The include the main class as follows:
@@ -29,6 +32,7 @@ include rsyslog
 ```
 
 <a name="reference"/>
+
 ## Reference
 
 ### Classes
@@ -116,7 +120,7 @@ Filter condition comparison operator (can be `contains`, `isequal`, `startswidth
 ##### `value` (required)
 Filter condition value
 
-##### `actions` (required)
+##### `action` (required)
 Filter action(s). Multiple actions can be specified as an Array of Strings.
 
 ##### `ensure` (optional)
@@ -145,6 +149,7 @@ Filter action(s). Multiple actions can be specified as an Array of Strings.
 Whether the resource is present or not. Valid values are `present`, `absent`. Defaults to `present`.
 
 <a name="hiera"/>
+
 ## Hiera integration
 
 You can optionally define your filters in Hiera as follows.
@@ -166,5 +171,6 @@ rsyslog::filter_facilities:
 ```
 
 <a name="contact"/>
+
 ## Contact
 Matteo Cerutti - matteo.cerutti@hotmail.co.uk

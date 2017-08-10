@@ -2,9 +2,9 @@
 # Managed by Puppet in the <%= $::environment %> environment
 #
 
-:<%= $property %>, <%= $operator %>, "<%= $value %>" <% if $actions !~ Array { -%><%= $actions %><% } else { %><%= $actions[0] %>
-<% if size($actions) > 1 { -%>
-<% $actions[1,-1].each |$act| { -%>
+:<%= $property %>, <%= $operator %>, "<%= $value %>" <% if $action !~ Array { -%><%= $action %><% } else { %><%= $action[0] %>
+<% if size($action) > 1 { -%>
+<% $action[1,-1].each |$act| { -%>
 & <%= $act %>
 <% } -%>
 <% } -%>
